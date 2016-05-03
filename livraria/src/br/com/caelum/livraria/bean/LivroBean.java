@@ -141,4 +141,8 @@ public class LivroBean implements Serializable {
 	public List<Autor> getAutoresDoLivro() {
 		return this.livro.getAutores();
 	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
 }
