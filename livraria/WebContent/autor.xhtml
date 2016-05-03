@@ -27,19 +27,22 @@
 					<p:inputText id="nome" value="#{autorBean.autor.nome}"
 						required="true">
 						<f:validateLength minimum="5" />
-						<f:ajax event="blur" render="messageNome" />
+						<f:ajax event="keypress" render="messageNome" />
 					</p:inputText>
 					<p:message for="nome" id="messageNome" />
 
 					<p:outputLabel value="Email:" for="email" />
 					<p:inputText id="email" value="#{autorBean.autor.email}"
-						required="true">
-						<f:passThroughAttribute name="type" value="email" />
+						required="true" validatorMessage="E-mail inválido">
+						<f:attribute name="type" value="email" />
+						<f:validateRegex pattern=".+@.+" />
+						<f:ajax event="keypress" render="messageEmail" />
 					</p:inputText>
 
 					<p:message for="email" id="messageEmail" />
 
-					<p:commandButton value="Gravar" action="#{autorBean.gravar}" process="@form" update="@form :formTabelaAutors"/>
+					<p:commandButton value="Gravar" action="#{autorBean.gravar}"
+						process="@form" update="@form :formTabelaAutors" />
 				</h:panelGrid>
 			</p:fieldset>
 		</h:form>
