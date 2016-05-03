@@ -49,20 +49,18 @@
 
 		<h:form id="formTabelaAutors">
 			<p:dataList value="#{autorBean.autores}" var="autor"
-				type="definition">
+				id="tabela_Autores" type="definition">
 				<f:facet name="header">
             		Autores
         		</f:facet>
 
-				<p:commandLink styleClass="ui-icon ui-icon-pencil"
-					style="float:left;margin-right:10px" update=":autor">
+				<p:commandButton update=":autor" icon="fa fa-fw fa-edit">
 					<f:setPropertyActionListener value="#{autor}"
 						target="#{autorBean.autor}" />
-				</p:commandLink>
+				</p:commandButton>
 
-				<p:commandLink styleClass="ui-icon ui-icon-trash"
-					style="float:left;margin-right:10px"
-					action="#{autorBean.remover(autor)}" update="@form" />
+				<p:commandButton action="#{autorBean.remover(autor)}"
+					update="tabela_Autores" icon="fa fa-fw fa-remove" />
 
         		#{autor.nome} - #{autor.email}
     		</p:dataList>
