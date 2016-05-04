@@ -11,6 +11,7 @@
 
 	<h:form rendered="#{usuarioLogado != null}">
 		<p:menubar>
+
 			<p:submenu label="Cadastros">
 				<p:menuitem value="Livros" action="livro?faces-redirect=true"
 					icon="fa fa-fw fa-edit" />
@@ -18,11 +19,23 @@
 					icon="fa fa-fw fa-edit" />
 			</p:submenu>
 
-
 			<f:facet name="options">
-				<p:commandButton value="Logout" icon="ui-icon-extlink"
-					action="#{loginBean.deslogar}" />
+
+				<p:panelGrid columns="2">
+					<p:themeSwitcher id="basic" style="width:165px"
+						value="#{temaBean.tema}">
+						<f:selectItem itemLabel="Choose Theme" itemValue="" />
+						<f:selectItems value="#{temaBean.temas}" var="tema"
+							itemLabel="#{tema}" itemValue="#{tema}" />
+						<f:ajax />
+					</p:themeSwitcher>
+
+					<p:commandButton value="Logout" icon="ui-icon-extlink"
+						action="#{loginBean.deslogar}" />
+
+				</p:panelGrid>
 			</f:facet>
+
 		</p:menubar>
 	</h:form>
 

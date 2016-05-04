@@ -54,13 +54,13 @@
             		Autores
         		</f:facet>
 
-				<p:commandButton update=":autor" icon="fa fa-fw fa-edit">
+				<p:commandButton update=":autor" icon="fa fa-edit">
 					<f:setPropertyActionListener value="#{autor}"
 						target="#{autorBean.autor}" />
 				</p:commandButton>
 
 				<p:commandButton action="#{autorBean.remover(autor)}"
-					update="tabela_Autores" icon="fa fa-fw fa-remove" />
+					update="tabela_Autores" icon="fa fa-remove" />
 
         		#{autor.nome} - #{autor.email}
     		</p:dataList>
