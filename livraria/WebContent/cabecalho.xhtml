@@ -8,13 +8,18 @@
 
 <h:head />
 <h:body>
-	<div id="cabecalho">
-		<ui:include src="cabecalho.xhtml" />
-	</div>
+		<h:graphicImage library="img" name="logo.png" />
 
-	<div id="conteudo">
-		<ui:insert name="conteudo" />
-	</div>
+		<p:growl id="growl" autoUpdate="true" />
+
+		<ui:include src="menu.xhtml" />
+
+		<p:outputPanel>
+			<h1>
+				<ui:insert name="titulo" />
+			</h1>
+		</p:outputPanel>
+
 </h:body>
 
 </html>
